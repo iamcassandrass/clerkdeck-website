@@ -143,16 +143,11 @@ const HomePage = ({ navigate }) => (
             <Users className="h-8 w-8 text-blue-500" />
             <h3 className="text-2xl font-bold text-slate-800">Seamless Client Management (CRM)</h3>
           </div>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 gap-8">
             <div className="bg-slate-50 p-6 rounded-2xl">
               <div className="bg-blue-50 w-12 h-12 flex items-center justify-center rounded-lg shadow-sm mb-4 text-blue-600"><Users /></div>
               <h4 className="text-xl font-semibold mb-2">Centralized Profiles</h4>
               <p className="text-slate-600">Store Company Legal Names, TAX IDs, and key points of contact (Email, Phone, WhatsApp, Telegram) in one secure hub.</p>
-            </div>
-            <div className="bg-slate-50 p-6 rounded-2xl">
-              <div className="bg-blue-50 w-12 h-12 flex items-center justify-center rounded-lg shadow-sm mb-4 text-blue-600"><Globe /></div>
-              <h4 className="text-xl font-semibold mb-2">Global Time Zone Sync</h4>
-              <p className="text-slate-600">Instantly view your client's real-time local clock directly on their profile. Never send an update at 3:00 AM their time again!</p>
             </div>
             <div className="bg-slate-50 p-6 rounded-2xl">
               <div className="bg-blue-50 w-12 h-12 flex items-center justify-center rounded-lg shadow-sm mb-4 text-blue-600"><FileSignature /></div>
@@ -437,6 +432,7 @@ export default function App() {
             <p className="mb-4 max-w-sm">
               The all-in-one business command center for Virtual Assistants, remote workers, and freelancers.
             </p>
+            <p className="text-sm font-medium text-slate-500 mb-1">Crafted by Cassandra Sawali</p>
             <p className="text-sm">© {new Date().getFullYear()} ClerkDeck App. All rights reserved.</p>
           </div>
           
