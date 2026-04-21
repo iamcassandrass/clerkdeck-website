@@ -330,6 +330,93 @@ const PrivacyPage = () => (
   </div>
 );
 
+const SupportPage = () => {
+  const [status, setStatus] = useState('');
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus('sending');
+    const form = e.target;
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch('/api/support', {
+        method: 'POST',
+        body: formData
+      });
+      if (response.ok) {
+        setStatus('success');
+        form.reset();
+      } else {
+        setStatus('error');
+      }
+    } catch (err) {
+      setStatus('error');
+    }
+  };
+
+  return (
+    <div className="animate-in fade-in duration-500 bg-white pt-32 pb-24 px-4 min-h-screen">
+      <div className="max-w-2xl mx-auto">
+        <h1 className="text-4xl font-bold mb-4">Contact Support</h1>
+        <p className="text-slate-600 mb-8">Have a question or need assistance? Fill out the form below and we'll get back to you securely.</p>
+
+        {status === 'success' && (
+          <div className="bg-teal-50 border border-teal-200 text-teal-800 rounded-lg p-4 mb-6 flex items-center gap-3">
+            <CheckCircle2 className="h-5 w-5 text-teal-600" />
+            <p>Your message has been sent successfully. We will be in touch shortly.</p>
+          </div>
+        )}
+
+        {status === 'error' && (
+          <div className="bg-red-50 border border-red-200 text-red-800 rounded-lg p-4 mb-6">
+            <p>There was an error sending your message. Please try again later.</p>
+          </div>
+        )}
+
+        <form onSubmit={handleSubmit} className="space-y-6">
+          <div>
+            <label htmlFor="email" className="block text-sm font-medium text-slate-700 mb-1">Email Address</label>
+            <input 
+              type="email" 
+              id="email" 
+              name="email" 
+              required 
+              className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 outline-none transition-colors"
+              placeholder="you@example.com"
+            />
+          </div>
+          <div>
+            <label htmlFor="subject" className="block text-sm font-medium text-slate-700 mb-1">Subject</label>
+            <input 
+              type="text" 
+              id="subject" 
+              name="_subject" 
+              required 
+              className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 outline-none transition-colors"
+              placeholder="How can we help?"
+            />
+          </div>
+          <div>
+            <label htmlFor="message" className="block text-sm font-medium text-slate-700 mb-1">Message</label>
+            <textarea 
+              id="message" 
+              name="message" 
+              rows="5" 
+              required 
+              className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 outline-none transition-colors"
+              placeholder="Write your message here..."
+            ></textarea>
+          </div>
+          <Button type="submit" variant="primary" className="w-full" disabled={status === 'sending'}>
+            {status === 'sending' ? 'Sending...' : 'Send Message'}
+          </Button>
+        </form>
+      </div>
+    </div>
+  );
+};
+
 // --- MAIN APP COMPONENT ---
 
 export default function App() {
@@ -338,6 +425,7 @@ export default function App() {
       const path = window.location.pathname;
       if (path.includes('/privacy')) return 'privacy';
       if (path.includes('/terms')) return 'terms';
+      if (path.includes('/support')) return 'support';
     }
     return 'home';
   });
@@ -349,6 +437,7 @@ export default function App() {
       const path = window.location.pathname;
       if (path.includes('/privacy')) setCurrentPage('privacy');
       else if (path.includes('/terms')) setCurrentPage('terms');
+      else if (path.includes('/support')) setCurrentPage('support');
       else setCurrentPage('home');
     };
     window.addEventListener('popstate', handlePopState);
@@ -409,6 +498,7 @@ export default function App() {
             <button onClick={() => navigate('home')} className="text-left font-medium text-slate-600 py-2 border-b border-slate-50">Home</button>
             <a href="https://clerkdeck.com/terms" onClick={(e) => { e.preventDefault(); navigate('terms'); }} className="block text-left font-medium text-slate-600 py-2 border-b border-slate-50">Terms of Use</a>
             <a href="https://clerkdeck.com/privacy" onClick={(e) => { e.preventDefault(); navigate('privacy'); }} className="block text-left font-medium text-slate-600 py-2 border-b border-slate-50">Privacy Policy</a>
+            <a href="https://clerkdeck.com/support" onClick={(e) => { e.preventDefault(); navigate('support'); }} className="block text-left font-medium text-slate-600 py-2 border-b border-slate-50">Contact Support</a>
             <Button variant="primary" className="w-full mt-2">Available on the App Store</Button>
           </div>
         )}
@@ -419,6 +509,7 @@ export default function App() {
         {currentPage === 'home' && <HomePage navigate={navigate} />}
         {currentPage === 'terms' && <TermsPage />}
         {currentPage === 'privacy' && <PrivacyPage />}
+        {currentPage === 'support' && <SupportPage />}
       </main>
 
       {/* Footer */}
@@ -448,6 +539,7 @@ export default function App() {
             <ul className="space-y-2 text-sm">
               <li><a href="https://clerkdeck.com/terms" onClick={(e) => { e.preventDefault(); navigate('terms'); }} className="hover:text-white transition-colors">Terms of Use</a></li>
               <li><a href="https://clerkdeck.com/privacy" onClick={(e) => { e.preventDefault(); navigate('privacy'); }} className="hover:text-white transition-colors">Privacy Policy</a></li>
+              <li><a href="https://clerkdeck.com/support" onClick={(e) => { e.preventDefault(); navigate('support'); }} className="hover:text-white transition-colors">Contact Support</a></li>
             </ul>
           </div>
         </div>
