@@ -332,10 +332,12 @@ const PrivacyPage = () => (
 
 const SupportPage = () => {
   const [status, setStatus] = useState('');
+  const [errorMsg, setErrorMsg] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus('sending');
+    setErrorMsg('');
     const form = e.target;
     const formData = new FormData(form);
 
@@ -348,9 +350,12 @@ const SupportPage = () => {
         setStatus('success');
         form.reset();
       } else {
+        const errData = await response.json().catch(() => ({}));
+        setErrorMsg(errData.error || `Server Error ${response.status}`);
         setStatus('error');
       }
     } catch (err) {
+      setErrorMsg(err.message || 'Network request failed');
       setStatus('error');
     }
   };
@@ -370,7 +375,8 @@ const SupportPage = () => {
 
         {status === 'error' && (
           <div className="bg-red-50 border border-red-200 text-red-800 rounded-lg p-4 mb-6">
-            <p>There was an error sending your message. Please try again later.</p>
+            <p className="font-semibold">There was an error sending your message:</p>
+            <p className="text-sm font-mono mt-2 bg-red-100 p-2 rounded">{errorMsg}</p>
           </div>
         )}
 
