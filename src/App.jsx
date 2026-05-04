@@ -30,13 +30,21 @@ const Logo = ({ className = "w-8 h-8" }) => (
   </svg>
 );
 
-const Button = ({ children, variant = 'primary', className = '', ...props }) => {
+const Button = ({ children, variant = 'primary', className = '', href, ...props }) => {
   const baseStyle = "inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium transition-colors duration-200";
   const variants = {
     primary: "bg-teal-600 text-white hover:bg-teal-700 shadow-sm",
     secondary: "bg-white text-teal-600 border-2 border-teal-100 hover:border-teal-200",
     outline: "border-2 border-slate-200 text-slate-700 hover:border-slate-300 hover:bg-slate-50"
   };
+  
+  if (href) {
+    return (
+      <a href={href} className={`${baseStyle} ${variants[variant]} ${className}`} {...props}>
+        {children}
+      </a>
+    );
+  }
   
   return (
     <button className={`${baseStyle} ${variants[variant]} ${className}`} {...props}>
@@ -67,7 +75,7 @@ const HomePage = ({ navigate }) => (
             Designed specifically for Virtual Assistants, remote workers, and freelancers. Say goodbye to messy spreadsheets and expensive enterprise software. Manage clients, track tasks, and get paid—all from the palm of your hand.
           </p>
           <div className="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start">
-            <Button variant="primary" className="w-full sm:w-auto text-lg px-8 py-4">
+            <Button href="https://apps.apple.com/ae/app/clerkdeck-assistant-suite/id6762770829" target="_blank" rel="noopener noreferrer" variant="primary" className="w-full sm:w-auto text-lg px-8 py-4">
               Available on the App Store
             </Button>
           </div>
@@ -214,6 +222,28 @@ const HomePage = ({ navigate }) => (
       </div>
     </section>
 
+    {/* Coming Soon Ecosystem */}
+    <section className="py-20 bg-slate-50 px-4 border-t border-slate-200">
+      <div className="max-w-4xl mx-auto text-center">
+        <h2 className="text-3xl font-bold text-slate-900 mb-4">Expanding the Ecosystem</h2>
+        <p className="text-lg text-slate-600 mb-12">ClerkDeck is just the beginning. Our specialized assistant tools are growing.</p>
+        
+        <div className="grid md:grid-cols-2 gap-6">
+          <div className="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm relative overflow-hidden group">
+            <div className="absolute top-4 right-4 bg-teal-100 text-teal-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Coming Soon</div>
+            <h3 className="text-2xl font-bold text-slate-800 mb-3 text-left">GridDeck</h3>
+            <p className="text-slate-600 text-left">The ultimate content grid planner and visual social media management board for marketing assistants.</p>
+          </div>
+          
+          <div className="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm relative overflow-hidden group">
+            <div className="absolute top-4 right-4 bg-teal-100 text-teal-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Coming Soon</div>
+            <h3 className="text-2xl font-bold text-slate-800 mb-3 text-left">BusinessWise</h3>
+            <p className="text-slate-600 text-left">Advanced client analytics, intelligent reporting, and financial forecasting for established virtual agencies.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     {/* CTA Section */}
     <section className="py-20 bg-slate-900 text-white text-center px-4">
       <div className="max-w-3xl mx-auto">
@@ -221,7 +251,7 @@ const HomePage = ({ navigate }) => (
         <p className="text-xl text-slate-300 mb-10">
           Download ClerkDeck today and turn your busy schedule into a beautifully organized business.
         </p>
-        <Button variant="primary" className="text-lg px-8 py-4">
+        <Button href="https://apps.apple.com/ae/app/clerkdeck-assistant-suite/id6762770829" target="_blank" rel="noopener noreferrer" variant="primary" className="text-lg px-8 py-4">
           Available on the App Store
         </Button>
       </div>
@@ -486,7 +516,7 @@ export default function App() {
           <div className="hidden md:flex items-center gap-8">
             <button onClick={() => navigate('home')} className="text-sm font-medium text-slate-600 hover:text-teal-600 transition-colors">Home</button>
             <button onClick={() => { navigate('home'); setTimeout(() => document.getElementById('features')?.scrollIntoView({behavior: 'smooth'}), 100); }} className="text-sm font-medium text-slate-600 hover:text-teal-600 transition-colors">Features</button>
-            <Button variant="primary" className="py-2 px-4 text-sm">Available on the App Store</Button>
+            <Button href="https://apps.apple.com/ae/app/clerkdeck-assistant-suite/id6762770829" target="_blank" rel="noopener noreferrer" variant="primary" className="py-2 px-4 text-sm">Available on the App Store</Button>
           </div>
 
           {/* Mobile Menu Toggle */}
@@ -505,7 +535,7 @@ export default function App() {
             <a href="https://clerkdeck.com/terms" onClick={(e) => { e.preventDefault(); navigate('terms'); }} className="block text-left font-medium text-slate-600 py-2 border-b border-slate-50">Terms of Use</a>
             <a href="https://clerkdeck.com/privacy" onClick={(e) => { e.preventDefault(); navigate('privacy'); }} className="block text-left font-medium text-slate-600 py-2 border-b border-slate-50">Privacy Policy</a>
             <a href="https://clerkdeck.com/support" onClick={(e) => { e.preventDefault(); navigate('support'); }} className="block text-left font-medium text-slate-600 py-2 border-b border-slate-50">Contact Support</a>
-            <Button variant="primary" className="w-full mt-2">Available on the App Store</Button>
+            <Button href="https://apps.apple.com/ae/app/clerkdeck-assistant-suite/id6762770829" target="_blank" rel="noopener noreferrer" variant="primary" className="w-full mt-2">Available on the App Store</Button>
           </div>
         )}
       </nav>
