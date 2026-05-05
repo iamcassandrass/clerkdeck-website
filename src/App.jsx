@@ -66,13 +66,13 @@ const HomePage = ({ navigate }) => (
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-teal-500"></span>
             </span>
-            Now Available for Virtual Assistants
+            The #1 App for Virtual Assistance
           </div>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-tight mb-6">
-            Your All-in-One <span className="text-teal-600">Business Command Center</span>
+            Your All-in-One <span className="text-teal-600">Virtual Assistant Command Center</span>
           </h1>
           <p className="text-lg md:text-xl text-slate-600 mb-8 max-w-2xl mx-auto lg:mx-0">
-            Designed specifically for Virtual Assistants, remote workers, and freelancers. Say goodbye to messy spreadsheets and expensive enterprise software. Manage clients, track tasks, and get paid—all from the palm of your hand.
+            Accelerate your VA career with ClerkDeck. Discover the ultimate virtual assistance software and access all the essential VA tools you need to manage clients, track tasks, and invoice seamlessly—right from the palm of your hand.
           </p>
           <div className="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start">
             <Button href="https://apps.apple.com/ae/app/clerkdeck-assistant-suite/id6762770829" target="_blank" rel="noopener noreferrer" variant="primary" className="w-full sm:w-auto text-lg px-8 py-4">
