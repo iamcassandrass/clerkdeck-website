@@ -129,10 +129,10 @@ const HomePage = ({ navigate }) => (
         <ShieldCheck className="h-16 w-16 mx-auto mb-6 text-teal-200" />
         <h2 className="text-3xl md:text-4xl font-bold mb-6">Build Unshakable Client Trust with Verified Reporting</h2>
         <p className="text-xl text-teal-50 mb-8 leading-relaxed">
-          Credibility is the most valuable currency for a VA. ClerkDeck features a unique, unalterable Task Reporting system. Once a task is marked completed, the date is locked in and cannot be altered or fudged.
+          Credibility is the most valuable currency for a confidential virtual assistant or Online Business Manager (OBM). ClerkDeck features a unique, unalterable Task Reporting system. Once a task is marked completed, the date is locked in and cannot be altered or fudged.
         </p>
         <p className="text-lg text-teal-100">
-          When you export these task reports to your clients, they have 100% peace of mind knowing they are looking at verified, accurate, and trustworthy proof of your hard work.
+          When you export these task reports to your clients, they have 100% peace of mind knowing they are looking at verified, accurate, and trustworthy proof of your hard work. Perfect for building long-term remote admin support relationships.
         </p>
       </div>
     </section>
@@ -149,7 +149,7 @@ const HomePage = ({ navigate }) => (
         <div className="mb-20">
           <div className="flex items-center gap-3 mb-8 border-b border-slate-200 pb-4">
             <Users className="h-8 w-8 text-blue-500" />
-            <h3 className="text-2xl font-bold text-slate-800">Seamless Client Management (CRM)</h3>
+            <h3 className="text-2xl font-bold text-slate-800">Remote Admin Support & Client Management (CRM)</h3>
           </div>
           <div className="grid md:grid-cols-2 gap-8">
             <div className="bg-slate-50 p-6 rounded-2xl">
@@ -169,7 +169,7 @@ const HomePage = ({ navigate }) => (
         <div className="mb-20">
           <div className="flex items-center gap-3 mb-8 border-b border-slate-200 pb-4">
             <LayoutList className="h-8 w-8 text-teal-600" />
-            <h3 className="text-2xl font-bold text-slate-800">Visual & Automated Task Management</h3>
+            <h3 className="text-2xl font-bold text-slate-800">Visual Task Management & SOP Creation Services</h3>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="border border-slate-100 shadow-sm p-6 rounded-2xl">
