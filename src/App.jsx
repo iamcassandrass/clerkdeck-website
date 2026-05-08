@@ -222,23 +222,37 @@ const HomePage = ({ navigate }) => (
       </div>
     </section>
 
-    {/* Coming Soon Ecosystem */}
+    {/* Ecosystem Section */}
     <section className="py-20 bg-slate-50 px-4 border-t border-slate-200">
       <div className="max-w-4xl mx-auto text-center">
         <h2 className="text-3xl font-bold text-slate-900 mb-4">Expanding the Ecosystem</h2>
         <p className="text-lg text-slate-600 mb-12">ClerkDeck is just the beginning. Our specialized assistant tools are growing.</p>
         
         <div className="grid md:grid-cols-2 gap-6">
-          <div className="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm relative overflow-hidden group">
-            <div className="absolute top-4 right-4 bg-teal-100 text-teal-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Coming Soon</div>
-            <h3 className="text-2xl font-bold text-slate-800 mb-3 text-left">GridDeck</h3>
-            <p className="text-slate-600 text-left">The ultimate content grid planner and visual social media management board for marketing assistants.</p>
+          <div 
+            onClick={() => { window.scrollTo(0,0); navigate('griddeck'); }}
+            className="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm relative overflow-hidden group cursor-pointer hover:border-blue-300 hover:shadow-md transition-all flex flex-col justify-between"
+          >
+            <div>
+              <h3 className="text-2xl font-bold text-slate-800 mb-3 text-left group-hover:text-blue-600 transition-colors">GridDeck</h3>
+              <p className="text-slate-600 text-left mb-6">The ultimate content grid planner and visual social media management board for marketing assistants.</p>
+            </div>
+            <div className="text-left mt-auto">
+              <span className="inline-flex items-center text-sm font-bold text-blue-600">Explore GridDeck <ArrowRight className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" /></span>
+            </div>
           </div>
           
-          <div className="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm relative overflow-hidden group">
-            <div className="absolute top-4 right-4 bg-teal-100 text-teal-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Coming Soon</div>
-            <h3 className="text-2xl font-bold text-slate-800 mb-3 text-left">BusinessWise</h3>
-            <p className="text-slate-600 text-left">Advanced client analytics, intelligent reporting, and financial forecasting for established virtual agencies.</p>
+          <div 
+            onClick={() => { window.scrollTo(0,0); navigate('businesswise'); }}
+            className="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm relative overflow-hidden group cursor-pointer hover:border-amber-300 hover:shadow-md transition-all flex flex-col justify-between"
+          >
+            <div>
+              <h3 className="text-2xl font-bold text-slate-800 mb-3 text-left group-hover:text-amber-600 transition-colors">BusinessWise</h3>
+              <p className="text-slate-600 text-left mb-6">Advanced client analytics, intelligent reporting, and financial forecasting for established virtual agencies.</p>
+            </div>
+            <div className="text-left mt-auto">
+              <span className="inline-flex items-center text-sm font-bold text-amber-600">Explore BusinessWise <ArrowRight className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" /></span>
+            </div>
           </div>
         </div>
       </div>
@@ -453,6 +467,68 @@ const SupportPage = () => {
   );
 };
 
+const GridDeckPage = () => (
+  <div className="animate-in fade-in duration-500 bg-white pt-32 pb-24 px-4 min-h-screen">
+    <div className="max-w-4xl mx-auto text-center">
+      <div className="inline-flex items-center justify-center p-4 bg-blue-50 rounded-2xl mb-8">
+        <LayoutList className="h-16 w-16 text-blue-600" />
+      </div>
+      <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6">GridDeck</h1>
+      <p className="text-xl text-slate-600 mb-10 max-w-2xl mx-auto">
+        The ultimate content grid planner and visual social media management board. Visualize your marketing strategy and organize your assets in one beautiful place.
+      </p>
+      <Button href="https://apps.apple.com/ae/app/griddeck/id6763991357" target="_blank" rel="noopener noreferrer" variant="primary" className="text-lg px-8 py-4 mb-16 shadow-lg shadow-blue-500/30 bg-blue-600 hover:bg-blue-700">
+        Available on the App Store
+      </Button>
+      
+      <div className="bg-slate-50 border border-slate-200 rounded-3xl p-8 md:p-12 text-left">
+        <h2 className="text-2xl font-bold mb-6">Key Features</h2>
+        <div className="grid md:grid-cols-2 gap-8">
+          <div>
+            <h3 className="text-lg font-bold mb-2 flex items-center gap-2"><Palette className="w-5 h-5 text-blue-500" /> Visual Board</h3>
+            <p className="text-slate-600">Drag and drop your content onto a visual board. See exactly how your grid will look before you post.</p>
+          </div>
+          <div>
+            <h3 className="text-lg font-bold mb-2 flex items-center gap-2"><BellRing className="w-5 h-5 text-blue-500" /> Schedule & Reminders</h3>
+            <p className="text-slate-600">Plan your posts in advance and get notified when it's time to publish your perfectly curated content.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+);
+
+const BusinessWisePage = () => (
+  <div className="animate-in fade-in duration-500 bg-white pt-32 pb-24 px-4 min-h-screen">
+    <div className="max-w-4xl mx-auto text-center">
+      <div className="inline-flex items-center justify-center p-4 bg-amber-50 rounded-2xl mb-8">
+        <ShieldCheck className="h-16 w-16 text-amber-600" />
+      </div>
+      <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6">BusinessWise</h1>
+      <p className="text-xl text-slate-600 mb-10 max-w-2xl mx-auto">
+        Advanced client analytics, intelligent reporting, and financial forecasting for established virtual agencies and high-ticket OBMs.
+      </p>
+      <Button href="https://apps.apple.com/" target="_blank" rel="noopener noreferrer" variant="primary" className="text-lg px-8 py-4 mb-16 shadow-lg shadow-amber-500/30 bg-amber-600 hover:bg-amber-700">
+        Available on the App Store
+      </Button>
+      
+      <div className="bg-slate-50 border border-slate-200 rounded-3xl p-8 md:p-12 text-left">
+        <h2 className="text-2xl font-bold mb-6">Key Features</h2>
+        <div className="grid md:grid-cols-2 gap-8">
+          <div>
+            <h3 className="text-lg font-bold mb-2 flex items-center gap-2"><Receipt className="w-5 h-5 text-amber-500" /> Advanced Analytics</h3>
+            <p className="text-slate-600">Track client retention, lifetime value, and revenue forecasts with beautiful, exportable charts.</p>
+          </div>
+          <div>
+            <h3 className="text-lg font-bold mb-2 flex items-center gap-2"><Globe className="w-5 h-5 text-amber-500" /> Agency Scale</h3>
+            <p className="text-slate-600">Built specifically for growing agencies that need macro-level oversight of multiple clients and team members.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+);
+
 // --- MAIN APP COMPONENT ---
 
 export default function App() {
@@ -462,6 +538,8 @@ export default function App() {
       if (path.includes('/privacy')) return 'privacy';
       if (path.includes('/terms')) return 'terms';
       if (path.includes('/support')) return 'support';
+      if (path.includes('/griddeck')) return 'griddeck';
+      if (path.includes('/businesswise')) return 'businesswise';
     }
     return 'home';
   });
@@ -474,6 +552,8 @@ export default function App() {
       if (path.includes('/privacy')) setCurrentPage('privacy');
       else if (path.includes('/terms')) setCurrentPage('terms');
       else if (path.includes('/support')) setCurrentPage('support');
+      else if (path.includes('/griddeck')) setCurrentPage('griddeck');
+      else if (path.includes('/businesswise')) setCurrentPage('businesswise');
       else setCurrentPage('home');
     };
     window.addEventListener('popstate', handlePopState);
@@ -513,10 +593,12 @@ export default function App() {
           </div>
 
           {/* Desktop Nav */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-6 lg:gap-8">
             <button onClick={() => navigate('home')} className="text-sm font-medium text-slate-600 hover:text-teal-600 transition-colors">Home</button>
+            <button onClick={() => navigate('griddeck')} className="text-sm font-medium text-slate-600 hover:text-teal-600 transition-colors">GridDeck</button>
+            <button onClick={() => navigate('businesswise')} className="text-sm font-medium text-slate-600 hover:text-teal-600 transition-colors">BusinessWise</button>
             <button onClick={() => { navigate('home'); setTimeout(() => document.getElementById('features')?.scrollIntoView({behavior: 'smooth'}), 100); }} className="text-sm font-medium text-slate-600 hover:text-teal-600 transition-colors">Features</button>
-            <Button href="https://apps.apple.com/ae/app/clerkdeck-assistant-suite/id6762770829" target="_blank" rel="noopener noreferrer" variant="primary" className="py-2 px-4 text-sm">Available on the App Store</Button>
+            <Button href="https://apps.apple.com/ae/app/clerkdeck-assistant-suite/id6762770829" target="_blank" rel="noopener noreferrer" variant="primary" className="py-2 px-4 text-sm hidden lg:inline-flex">Get ClerkDeck</Button>
           </div>
 
           {/* Mobile Menu Toggle */}
@@ -532,10 +614,12 @@ export default function App() {
         {isMobileMenuOpen && (
           <div className="md:hidden bg-white border-b border-slate-200 px-4 py-4 flex flex-col gap-4">
             <button onClick={() => navigate('home')} className="text-left font-medium text-slate-600 py-2 border-b border-slate-50">Home</button>
+            <a href="https://clerkdeck.com/griddeck" onClick={(e) => { e.preventDefault(); navigate('griddeck'); }} className="block text-left font-medium text-slate-600 py-2 border-b border-slate-50">GridDeck</a>
+            <a href="https://clerkdeck.com/businesswise" onClick={(e) => { e.preventDefault(); navigate('businesswise'); }} className="block text-left font-medium text-slate-600 py-2 border-b border-slate-50">BusinessWise</a>
             <a href="https://clerkdeck.com/terms" onClick={(e) => { e.preventDefault(); navigate('terms'); }} className="block text-left font-medium text-slate-600 py-2 border-b border-slate-50">Terms of Use</a>
             <a href="https://clerkdeck.com/privacy" onClick={(e) => { e.preventDefault(); navigate('privacy'); }} className="block text-left font-medium text-slate-600 py-2 border-b border-slate-50">Privacy Policy</a>
             <a href="https://clerkdeck.com/support" onClick={(e) => { e.preventDefault(); navigate('support'); }} className="block text-left font-medium text-slate-600 py-2 border-b border-slate-50">Contact Support</a>
-            <Button href="https://apps.apple.com/ae/app/clerkdeck-assistant-suite/id6762770829" target="_blank" rel="noopener noreferrer" variant="primary" className="w-full mt-2">Available on the App Store</Button>
+            <Button href="https://apps.apple.com/ae/app/clerkdeck-assistant-suite/id6762770829" target="_blank" rel="noopener noreferrer" variant="primary" className="w-full mt-2">Get ClerkDeck</Button>
           </div>
         )}
       </nav>
@@ -543,6 +627,8 @@ export default function App() {
       {/* Main Content Area */}
       <main className="flex-grow">
         {currentPage === 'home' && <HomePage navigate={navigate} />}
+        {currentPage === 'griddeck' && <GridDeckPage />}
+        {currentPage === 'businesswise' && <BusinessWisePage />}
         {currentPage === 'terms' && <TermsPage />}
         {currentPage === 'privacy' && <PrivacyPage />}
         {currentPage === 'support' && <SupportPage />}
@@ -567,6 +653,8 @@ export default function App() {
             <h4 className="text-white font-semibold mb-4">Product</h4>
             <ul className="space-y-2 text-sm">
               <li><button onClick={() => { navigate('home'); setTimeout(() => document.getElementById('features')?.scrollIntoView({behavior: 'smooth'}), 100); }} className="hover:text-white transition-colors">Features</button></li>
+              <li><button onClick={() => navigate('griddeck')} className="hover:text-white transition-colors">GridDeck</button></li>
+              <li><button onClick={() => navigate('businesswise')} className="hover:text-white transition-colors">BusinessWise</button></li>
             </ul>
           </div>
 
