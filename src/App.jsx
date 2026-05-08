@@ -30,6 +30,25 @@ const Logo = ({ className = "w-8 h-8" }) => (
   </svg>
 );
 
+const GridDeckLogo = ({ className = "w-8 h-8" }) => (
+  <svg viewBox="0 0 100 100" className={className} xmlns="http://www.w3.org/2000/svg">
+    <rect x="15" y="15" width="30" height="30" rx="6" fill="#60A5FA" />
+    <rect x="55" y="15" width="30" height="30" rx="6" fill="#3B82F6" />
+    <rect x="15" y="55" width="30" height="30" rx="6" fill="#2563EB" />
+    <rect x="55" y="55" width="30" height="30" rx="6" fill="#1D4ED8" />
+  </svg>
+);
+
+const BusinessWiseLogo = ({ className = "w-8 h-8" }) => (
+  <svg viewBox="0 0 100 100" className={className} xmlns="http://www.w3.org/2000/svg">
+    <path d="M20 80 L80 80" stroke="#D97706" strokeWidth="8" strokeLinecap="round" />
+    <rect x="25" y="50" width="12" height="30" rx="3" fill="#FBBF24" />
+    <rect x="44" y="30" width="12" height="50" rx="3" fill="#F59E0B" />
+    <rect x="63" y="15" width="12" height="65" rx="3" fill="#D97706" />
+    <path d="M15 65 L44 35 L63 20 L85 10" stroke="#B45309" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+  </svg>
+);
+
 const Button = ({ children, variant = 'primary', className = '', href, ...props }) => {
   const baseStyle = "inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium transition-colors duration-200";
   const variants = {
@@ -234,7 +253,10 @@ const HomePage = ({ navigate }) => (
             className="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm relative overflow-hidden group cursor-pointer hover:border-blue-300 hover:shadow-md transition-all flex flex-col justify-between"
           >
             <div>
-              <h3 className="text-2xl font-bold text-slate-800 mb-3 text-left group-hover:text-blue-600 transition-colors">GridDeck</h3>
+              <h3 className="text-2xl font-bold text-slate-800 mb-3 text-left group-hover:text-blue-600 transition-colors flex items-center gap-3">
+                <GridDeckLogo className="w-8 h-8" />
+                GridDeck
+              </h3>
               <p className="text-slate-600 text-left mb-6">The ultimate content grid planner and visual social media management board for marketing assistants.</p>
             </div>
             <div className="text-left mt-auto">
@@ -247,7 +269,10 @@ const HomePage = ({ navigate }) => (
             className="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm relative overflow-hidden group cursor-pointer hover:border-amber-300 hover:shadow-md transition-all flex flex-col justify-between"
           >
             <div>
-              <h3 className="text-2xl font-bold text-slate-800 mb-3 text-left group-hover:text-amber-600 transition-colors">BusinessWise</h3>
+              <h3 className="text-2xl font-bold text-slate-800 mb-3 text-left group-hover:text-amber-600 transition-colors flex items-center gap-3">
+                <BusinessWiseLogo className="w-8 h-8" />
+                BusinessWise
+              </h3>
               <p className="text-slate-600 text-left mb-6">Advanced client analytics, intelligent reporting, and financial forecasting for established virtual agencies.</p>
             </div>
             <div className="text-left mt-auto">
@@ -471,7 +496,7 @@ const GridDeckPage = () => (
   <div className="animate-in fade-in duration-500 bg-white pt-32 pb-24 px-4 min-h-screen">
     <div className="max-w-4xl mx-auto text-center">
       <div className="inline-flex items-center justify-center p-4 bg-blue-50 rounded-2xl mb-8">
-        <LayoutList className="h-16 w-16 text-blue-600" />
+        <GridDeckLogo className="h-16 w-16" />
       </div>
       <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6">GridDeck</h1>
       <p className="text-xl text-slate-600 mb-10 max-w-2xl mx-auto">
@@ -502,7 +527,7 @@ const BusinessWisePage = () => (
   <div className="animate-in fade-in duration-500 bg-white pt-32 pb-24 px-4 min-h-screen">
     <div className="max-w-4xl mx-auto text-center">
       <div className="inline-flex items-center justify-center p-4 bg-amber-50 rounded-2xl mb-8">
-        <ShieldCheck className="h-16 w-16 text-amber-600" />
+        <BusinessWiseLogo className="h-16 w-16" />
       </div>
       <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6">BusinessWise</h1>
       <p className="text-xl text-slate-600 mb-10 max-w-2xl mx-auto">
